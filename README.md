@@ -7,7 +7,7 @@ A chrome extension for removing ads on the web page.
 
 通过寻找页面中广告的特性，通过算法可以得到广告框的外层id或者类名。
 简单的算法如下：
-```
+```Javascript
 findSomeAdPossible: function() {
 	//找到可能的广告wrapper
 	var sap = $('div iframe');
@@ -23,7 +23,7 @@ findSomeAdPossible: function() {
 ```
 
 另外设置了一个id数组和class数组用于存放那些没有特性的广告框容器名，缺点是需要手动收集
-```
+```Javascript
 clear: function() {
 	//此处可手动添加广告框id名，去除顽疾ad必备
 	var ad_id_name = [
