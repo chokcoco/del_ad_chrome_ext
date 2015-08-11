@@ -1,23 +1,34 @@
-# 广告清除插件
-A chrome extension for removing ads on the web page.
+# A chrome extension for removing ads on the web page.
 
-一款简易的chrome插件，可清除页面中的广告
+一款简易的chrome插件，可清除页面中的广告。
 
 通过在匹配的页面注入js脚本文件，通过找到页面中的广告框然后将其隐藏（通过JQ hide()方法）达到清除广告的效果。
 
 通过寻找页面中广告的特性，通过算法可以得到广告框的外层id或者类名。
+
 简单的算法如下：
 ```Javascript
+//简单的智能算法
 findSomeAdPossible: function() {
 	//找到可能的广告wrapper
-	var sap = $('div iframe');
-	
-	for (var i = 0; i < sap.length; i++) {
-		var self = sap.eq(i);
-		//一般广告特性，宽度小于350 或者高度小于150，算法简单，所以可能“误杀”良民，但是经过测试匹配率很高
-		if (self.width() <= 350 || self.height() <= 150 ) {
+	var sap = $('div iframe'),
+	    ad_img = $('div script').parent().find('img,embed'),
+	    float_img = $('div object').parent().find('img,embed');
+
+	    this.arrayDel(sap,360,200);
+	    this.arrayDel(ad_img,350,150);
+	    this.arrayDel(float_img,350,150);
+},
+arrayDel : function(arr,conWidth,conHeight){
+	var len = arr.length;
+
+	for(var i = 0 ; i<len ; i++){
+		var self = arr.eq(i);
+
+		if(self.width() <= conWidth || self.height() <= conHeight) {
 			self.hide();
 		}
+
 	}
 }
 ```
