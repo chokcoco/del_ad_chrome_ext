@@ -15,14 +15,16 @@ $(function() {
 				"cproIframe2006holder",
 				"cproIframe2007holder",
 				"cproIframe2008holder",
+				"cproIframe2009holder",
 				"id_300x250_banner_top",
 				"ads",
 				"google_image_div",
 				"mx_cs_71603_1261456",
 				"AC_TR86_71603",
 				"cproIframe_u2060917_1",
-				"google_image_div",
-				"content_right"
+				"content_right",
+				"left-promotion",
+				"top_ads"
 			];
 
 			//此处添加广告框类名
@@ -42,14 +44,24 @@ $(function() {
 		},
 		//简单的智能算法
 		findSomeAdPossible: function() {
-			var sap = $('div iframe');
+			var sap = $('div iframe'),
+				ad_img = $('div script').parent().find('img,embed'),
+				float_img = $('div object').parent().find('img,embed');
 
-			for (var i = 0; i < sap.length; i++) {
-				var self = sap.eq(i);
+				this.arrayDel(sap,360,200);
+				this.arrayDel(ad_img,350,150);
+				this.arrayDel(float_img,350,150);
+		},
+		arrayDel : function(arr,conWidth,conHeight){
+			var len = arr.length;
 
-				if (self.width() <= 350 || self.height() <= 150 ) {
+			for(var i = 0 ; i<len ; i++){
+				var self = arr.eq(i);
+
+				if(self.width() <= conWidth || self.height() <= conHeight) {
 					self.hide();
 				}
+
 			}
 		},
 		init: function() {
@@ -61,9 +73,9 @@ $(function() {
 	$(document).ready(function() {
 		clearAd.init();
 
-		//为防止ajax异步延时加载的广告隔3s再清除一次
+		//为防止ajax异步延时加载的广告隔4s再清除一次
 		setTimeout(function() {
 			clearAd.init();
-		}, 3000)
+		}, 4000)
 	});
 })
