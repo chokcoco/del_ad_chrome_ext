@@ -75,3 +75,9 @@ clear: function() {
 	}
 }
 ```
+
+如果安装了无法正常使用，需要进行如下配置，打开chrome浏览器，输入框输入
+```
+chrome://flags/#enable-npapi
+```
+然后，然后启用 NPAPI 、启用 实验性扩展程序 API
