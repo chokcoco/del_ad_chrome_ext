@@ -2,6 +2,9 @@
 
 一款简易的chrome插件，可清除页面中的广告。
 
+仓库里是整个插件包，下载安装chrome拓展可以直接使用，chrome插件安装及配置参考：
+http://open.chrome.360.cn/extension_dev/getstarted.html
+
 通过在匹配的页面注入js脚本文件，通过找到页面中的广告框然后将其隐藏（通过JQ hide()方法）达到清除广告的效果。
 
 通过寻找页面中广告的特性，通过算法可以得到广告框的外层id或者类名。
