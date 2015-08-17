@@ -117,4 +117,4 @@ chrome://flags/#enable-npapi
 ```
 然后，然后启用 NPAPI 、启用 实验性扩展程序 API
 
-blog介绍地址：http://www.cnblogs.com/coco1s/p/4725477.html[http://www.cnblogs.com/coco1s/p/4725477.html]
+blog介绍地址：http://www.cnblogs.com/coco1s/p/4725477.html
