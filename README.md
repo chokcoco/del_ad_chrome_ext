@@ -76,8 +76,45 @@ clear: function() {
 }
 ```
 
+由于manifest文件匹配规则只有通配没有非功能，所以可在此方法可以设置不想删除广告的页面
+```javascript
+checkUrl: function() {
+	var Checkflag = 0,
+		url = window.location.href;
+
+	//手动添加不需要清除广告的域
+	var notDel = [
+		"www.baidu.com",
+		"taobao.com",
+		"tmall.com",
+		"jd.com"
+	];
+
+	//正则匹配
+	for (var i = 0; i < notDel.length; i++) {
+		var reg = new RegExp(notDel[i], "g");
+
+		if (reg.test(url)) {
+			console.log('This page does not clear ads.');
+			break;
+		} else {
+			if (i == notDel.length - 1) {
+				Checkflag = 1;
+			}
+		}
+	}
+	
+	if (Checkflag == 1) {
+		this.clear();
+		this.findSomeAdPossible();
+	}
+}
+```
+
 如果安装了无法正常使用，需要进行如下配置，打开chrome浏览器，输入框输入
 ```
 chrome://flags/#enable-npapi
 ```
 然后，然后启用 NPAPI 、启用 实验性扩展程序 API
+
+blog介绍地址：http://www.cnblogs.com/coco1s/p/4725477.html[http://www.cnblogs.com/coco1s/p/4725477.html]
