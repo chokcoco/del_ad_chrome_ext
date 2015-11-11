@@ -1,6 +1,6 @@
 # A chrome extension for removing ads on the web page.
 
-一款简易的chrome插件，可清除页面中的广告。
+一款简易的chrome拓展程序，可清除页面中的广告。
 
 仓库里是整个插件包，下载安装chrome拓展可以直接使用，chrome插件安装及配置参考：
 http://open.chrome.360.cn/extension_dev/getstarted.html
